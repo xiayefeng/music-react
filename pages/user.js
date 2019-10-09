@@ -1,4 +1,4 @@
-
+import React from 'react'
 import styles from './user.css';
 
 export default function() {

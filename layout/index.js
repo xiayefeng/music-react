@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
+import {observer, inject, Provider} from 'mobx-react'
 
+@observer
 class Init extends Component{
   render () {
     return (
@@ -10,6 +12,7 @@ class Init extends Component{
   }
 }
 
+@observer
 class Layout extends Component{
   constructor(props){
     super(props)
@@ -20,15 +23,22 @@ class Layout extends Component{
 
   render(){
     return (
+      <Provider {...store}>
       <div>
         <p>common page</p>
         {this.state.loading ? <Init/> : this.props.children}
       </div>
+      </Provider>
     )
   }
 
   componentDidMount(){
-    
+    request.get().then(res => {
+      store.set(res.data)
+      this.setState({
+        loading: false
+      })
+    })
   }
 }
 
