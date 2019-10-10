@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {observer, inject, Provider} from 'mobx-react'
+import store from '../store'
 
 @observer
 class Init extends Component{
@@ -33,8 +34,7 @@ class Layout extends Component{
   }
 
   componentDidMount(){
-    request.get().then(res => {
-      store.set(res.data)
+    store.user.fetch().then(res => {
       this.setState({
         loading: false
       })
