@@ -35,6 +35,7 @@ class Layout extends Component{
 
   componentDidMount(){
     store.user.fetch().then(res => {
+      console.log(res)
       this.setState({
         loading: false
       })
