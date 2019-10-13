@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {observable} from 'mobx'
 import {observer, inject, Provider} from 'mobx-react'
 
+import Player from '../components/player'
+
 import styles from './index.css';
 
 @inject('music')
@@ -26,8 +28,8 @@ class PageIndex extends Component {
           <p>{music.recommendMusic.type}</p>
           <p>{music.recommendMusic.alias}</p>
         </div>
-        {/* <Player item={music.recommendMusic} />
-        {this.showChannel && <Channel data={music.classify} onHide={e => {this.showChannel = false}} />} */}
+        { <Player item={music.recommendMusic} />
+        /* {this.showChannel && <Channel data={music.classify} onHide={e => {this.showChannel = false}} />} */}
       </div>
     );
   }

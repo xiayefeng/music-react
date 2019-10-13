@@ -7,7 +7,7 @@ export default {
         data: {
           name: 'anyuxuan',
           age: 32,
-          country: 'cn'
+          country: 'us'
         }
       })
     }, 1000)

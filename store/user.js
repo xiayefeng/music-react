@@ -1,5 +1,6 @@
 import {observable, computed, action, autorun, when} from 'mobx'
 import {getUserDetail} from '../api/user'
+import {setCountry} from '../i18n'
 class User{
   @observable isLogin = false
 
@@ -9,6 +10,7 @@ class User{
       data, status
     } = await getUserDetail()
     this.data = data
+    setCountry(data.data.country)
     return data
   }
 }

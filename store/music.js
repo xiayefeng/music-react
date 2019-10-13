@@ -19,6 +19,11 @@ class Music{
     let recommendMusic = await getRecommendMusic()
     this.recommendMusic = recommendMusic.data
   }
+
+  @action.bound
+  async collectMusicById(id){
+    let data = await collectMusicById({id})
+  }
   
 }
 
